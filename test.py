@@ -11,5 +11,5 @@ while True:
 '''
 import time
 f = open("test.txt","w")
-f.write(str(time.now()))
+f.write(str(time.time()))
 f.close()
