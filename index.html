@@ -14,7 +14,7 @@
             if(rawFile.status === 200 || rawFile.status == 0) {
 				try {
 					var data = rawFile.responseText;
-          test.innerHTML = data;
+          test.innerHTML = "Last data saved: "+data;
 					if (datareq == 1) {//DEBUG OPTION
 						console.log(data);
 					}
