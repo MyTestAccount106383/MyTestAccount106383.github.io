@@ -5,7 +5,11 @@ Using workflows allows a python script to save data to github servers, but they 
 -^^^ Try a loop on the website to call readTextFile repeatedly? No, it's caching and ruining it all.<br>
 -Additionally, I have not yet found a way to allow the script to save data whilst running. The script must end, meaning no while loops to continuously update info yet.<br>
 It is possible to have a project's website read information from a file within the same project, that seems to have gone smoothly so far.<br>
-
+<br><br>
+Update: It takes about 50 seconds after saving new data for said data to appear on the site. No page refresh, no hard reload. Thanks request headers!<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;But that's still too slow.<br>
+And I still can't save data while the script is running.<br>
+If I can rebuild data constantly and redisplay it in near-real time (<= 10s), I might be able to start utilizing github for a proper website.
 
 <br><br><br><br><br>
 
