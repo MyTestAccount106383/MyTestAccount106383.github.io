@@ -5,5 +5,5 @@ while True:
   f = open("test.txt","w")
   f.write(str(timeOpen))
   f.close()
-  time.wait(5)
+  time.sleep(5)
   timeOpen += 5
