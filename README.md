@@ -2,7 +2,7 @@
 
 NOTICE: Workflow to automatically update date/time is **disabled**. Must reenable before use. (Actions tab)<br>
 Using workflows allows a python script to save data to github servers, but they take a few minutes to update to github, which is not good enough.<br>
--^^^ Try a loop on the website to call readTextFile repeatedly?<br>
+-^^^ Try a loop on the website to call readTextFile repeatedly? No, it's caching and ruining it all.<br>
 -Additionally, I have not yet found a way to allow the script to save data whilst running. The script must end, meaning no while loops to continuously update info yet.<br>
 It is possible to have a project's website read information from a file within the same project, that seems to have gone smoothly so far.<br>
 
