@@ -1,4 +1,39 @@
 <!DOCTYPE HTML>
 <body style="background-color: #777777;">
   <h1>TEST SITE</h1>
+  <p id="test">There is nothing here for some reason...</p>
+  <script>
+    test = document.getElementById("test");
+    
+    function readTextFile(file,datareq=0) {
+    var rawFile = new XMLHttpRequest();
+	  var errorMsg = "An error has prevented the data from being updated.";
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function () {
+        if(rawFile.readyState === 4) {
+            if(rawFile.status === 200 || rawFile.status == 0) {
+				try {
+					var data = rawFile.responseText;
+          test.innerHTML = data;
+					if (datareq == 1) {//DEBUG OPTION
+						console.log(data);
+					}
+				}
+				catch (err) {
+					console.log(err + "\nFile: "+ file);
+					document.getElementById("test").innerHTML = errorMsg;
+				}
+            }
+        }
+    }
+	try {
+	    rawFile.send(null);
+	}
+	catch (err) {
+		console.log(err);
+		document.getElementById("test").innerHTML = errorMsg;
+	}
+}
+    readTextFile("test.txt");
+  </script>
 </body>
