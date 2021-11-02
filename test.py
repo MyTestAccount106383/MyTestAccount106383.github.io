@@ -10,6 +10,10 @@ while True:
   timeOpen += 5
 '''
 import time
+import datetime
+today = datetime.date.now()
+data = now.strftime("%Y-%m-%d %H:%M:%S")
 f = open("test.txt","w")
-f.write(str(time.time()))
+#f.write(str(time.time()))
+f.write(data)
 f.close()
