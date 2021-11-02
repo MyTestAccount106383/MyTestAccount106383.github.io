@@ -11,7 +11,7 @@ while True:
 '''
 import time
 import datetime
-today = datetime.datetime.now()
+now = datetime.datetime.now()
 data = now.strftime("%Y-%m-%d %H:%M:%S")
 f = open("test.txt","w")
 #f.write(str(time.time()))
