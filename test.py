@@ -1,3 +1,4 @@
+'''
 import time
 timeOpen = 0
 
@@ -7,3 +8,8 @@ while True:
   f.close()
   time.sleep(5)
   timeOpen += 5
+'''
+import time
+f = open("test.txt","w")
+f.write(str(time.now()))
+f.close()
