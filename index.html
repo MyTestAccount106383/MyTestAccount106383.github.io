@@ -13,6 +13,7 @@
 	counter = 0;
     
     function readTextFile(file,datareq=0) {
+	    counter += 1;
     var rawFile = new XMLHttpRequest();
 	  var errorMsg = "An error has prevented the data from being updated.";
     rawFile.open("GET", file, true);
