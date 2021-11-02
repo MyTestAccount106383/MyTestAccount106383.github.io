@@ -9,42 +9,42 @@
   <h1>TEST SITE</h1>
   <p id="test">There is nothing here for some reason...</p>
   <script>
-    test = document.getElementById("test");
-	counter = 0;
-    
-    function readTextFile(file,datareq=0) {
-	    counter += 1;
-    var rawFile = new XMLHttpRequest();
-	  var errorMsg = "An error has prevented the data from being updated.";
-    rawFile.open("GET", file, true);
-    rawFile.onreadystatechange = function () {
-        if(rawFile.readyState === 4) {
-            if(rawFile.status === 200 || rawFile.status == 0) {
-				try {
-					var data = rawFile.responseText;
+test = document.getElementById("test");
+counter = 0;
+function readTextFile(file,datareq=0) {
+  counter += 1;
+  var rawFile = new XMLHttpRequest();
+  var errorMsg = "An error has prevented the data from being updated.";
+  rawFile.open("GET", file, true);
+  rawFile.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0');//This work? Probably not.
+  rawFile.onreadystatechange = function () {
+    if(rawFile.readyState === 4) {
+      if(rawFile.status === 200 || rawFile.status == 0) {
+        try {
+          var data = rawFile.responseText;
           test.innerHTML = "Last data saved: "+data+"<br>Times checked since reload: "+counter;
-					if (datareq == 1) {//DEBUG OPTION
-						console.log(data);
-					}
-				}
-				catch (err) {
-					console.log(err + "\nFile: "+ file);
-					document.getElementById("test").innerHTML = errorMsg;
-				}
-            }
+          if (datareq == 1) {//DEBUG OPTION
+            console.log(data);
+          }
         }
+        catch (err) {
+          console.log(err + "\nFile: "+ file);
+          document.getElementById("test").innerHTML = errorMsg;
+        }
+      }
     }
-	try {
-	    rawFile.send(null);
-	}
-	catch (err) {
-		console.log(err);
-		document.getElementById("test").innerHTML = errorMsg;
-	}
+  }
+  try {
+    rawFile.send(null);
+  }
+  catch (err) {
+    console.log(err);
+    document.getElementById("test").innerHTML = errorMsg;
+  }
 }
-    readTextFile("test.txt");
-	  setInterval(function() {
-	  	readTextFile("test.txt");
-	  },5000);
+readTextFile("test.txt");
+setInterval(function() {
+  readTextFile("test.txt");
+},5000);
   </script>
 </body>
