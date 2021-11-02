@@ -10,6 +10,7 @@
   <p id="test">There is nothing here for some reason...</p>
   <script>
     test = document.getElementById("test");
+	counter = 0;
     
     function readTextFile(file,datareq=0) {
     var rawFile = new XMLHttpRequest();
@@ -20,7 +21,7 @@
             if(rawFile.status === 200 || rawFile.status == 0) {
 				try {
 					var data = rawFile.responseText;
-          test.innerHTML = "Last data saved: "+data;
+          test.innerHTML = "Last data saved: "+data+"<br>Times checked since reload: "+counter;
 					if (datareq == 1) {//DEBUG OPTION
 						console.log(data);
 					}
